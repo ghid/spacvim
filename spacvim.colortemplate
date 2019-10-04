@@ -1,0 +1,370 @@
+# vim: ft=colortemplate fdm=marker cc=22,40,58 et ts=2 sw=2
+
+# Information {{{
+# Mandatory
+Full name:     spacvim
+Short name:    spacvim
+Author:        Klaus-Peter Schreiner <kpschreiner13@gmail.com>
+# Optional
+Maintainer:    Myself <myself@somewhere.org>
+Website:       https://me.org
+Description:   Template for a colorscheme with dark and light variants
+License:       Public domain
+Option Prefix: spacvim
+# }}}
+
+# Documentation {{{
+# Include: _help.colortemplate
+# }}}
+
+# Global definitions - put at the top of the colorscheme {{{
+QuickFixLine          -> Search
+StatusLineTerm        -> StatusLine
+StatusLineTermNC      -> StatusLineNC
+Boolean               -> Constant
+Character             -> Constant
+Conditional           -> Statement
+Define                -> PreProc
+Debug                 -> Special
+Delimiter             -> Keyword
+Exception             -> Statement
+Float                 -> Constant
+Include               -> PreProc
+Label                 -> Statement
+Macro                 -> PreProc
+Number                -> Constant
+Operator              -> Statement
+PreCondit             -> PreProc
+Repeat                -> Statement
+SpecialChar           -> Special
+SpecialComment        -> Special
+Statement             -> Special
+StorageClass          -> Type
+Structure             -> Type
+Tag                   -> Special
+Typedef               -> Type
+# See `:help lCursor` 
+lCursor               -> Cursor
+# }}}
+
+Background: dark
+
+# Color palette for dark variant {{{
+# Color name                GUI                  Base256    Base16 (optional)
+# Color: black                rgb(  0,   0,   0)     ~        Black
+# You may use hexadecimal values, too, and you may provide an explicit base-256 color:
+# Color: brightwhite          #ffffff                231      White
+Color: act1                 #222226                  ~        black
+Color: act2                 #5d4d7a                  ~        gray
+Color: base                 #b2b2b2                  ~        white
+Color: base_dim             #686868                  ~        gray
+Color: bg1                  #292b2e                  ~        black
+Color: bg2                  #212026                  ~        black
+Color: bg3                  #100a14                  ~        black
+Color: bg4                  #0a0814                  ~        black
+Color: border               #5d4d7a                  ~        magenta
+Color: cblk                 #cbc1d5                  ~
+Color: cblk_bg              #2f2b33                  ~
+Color: cblk_ln              #827591                  ~
+Color: cblk_ln_bg           #373040                  ~
+Color: cursor               #eead0e                  ~        yellow
+Color: const                #a45bad                  ~        magenta
+Color: comment              #2aa1ae                  ~        cyan
+Color: comment_light        #2aa1ae                  ~        cyan
+Color: comment_bg           #292e34                  ~        black
+Color: comp                 #c56ec3                  ~
+Color: err                  #e0211d                  ~        red
+Color: func                 #bc6ec5                  ~        magenta
+Color: head1                #4f97d7                  ~        blue
+Color: head1_bg             #293239                  ~        black
+Color: head2                #2d9574                  ~
+Color: head2_bg             #293235                  ~
+Color: head3                #67b11d                  ~
+Color: head3_bg             #293235                  ~
+Color: head4                #b1951d                  ~
+Color: head4_bg             #32322c                  ~
+Color: highlight            #444155                  ~         gray
+Color: highlight_dim        #3b314d                  ~         gray
+Color: keyword              #4f97d7                  ~         blue
+Color: lnum                 #44505c                  ~         gray
+Color: mat                  #86dc2f                  ~         green
+Color: meta                 #9f8766                  ~         yellow
+Color: str                  #2d9574                  ~         green
+Color: suc                  #86dc2f                  ~
+Color: ttip                 #9a9aba                  ~         magenta
+Color: ttip_sl              #5e5079                  ~         black
+Color: ttip_bg              #34323e                  ~         magenta
+Color: type                 #ce537a                  ~         magenta
+Color: var                  #7590db                  ~         blue
+Color: war                  #dc752f                  ~         yellow
+
+# colors                                             ~
+Color: black                #292b2e                  ~         black
+Color: red                  #d26487                  ~         red
+Color: green                #288668                  ~         green
+Color: yellow               #b89f33                  ~         yellow
+Color: blue                 #6981c5                  ~         blue
+Color: magenta              #a15ea7                  ~         magenta
+Color: cyan                 #35a8a5                  ~         cyan
+Color: white                #999999                  ~         white
+Color: brightblack          #34323e                  ~        
+Color: brightred            #f2241f                  ~         
+Color: brightgreen          #67b11d                  ~         green
+Color: brightyellow         #b1951d                  ~
+Color: brightblue           #4f97d7                  ~
+Color: brightmagenta        #bc6ec5                  ~         magenta
+Color: brightcyan           #2d9574                  ~
+Color: brightwhite          #b2b2b2                  ~
+Color: pink                 #ff82b1                  ~         magenta
+# }}}
+
+# Terminal colors for dark variant {{{
+Term colors: black red green yellow blue magenta cyan white
+Term colors: brightblack brightred brightgreen brightyellow
+Term colors: brightblue brightmagenta brightcyan brightwhite
+# }}}
+
+# Definitions common to all variants {{{
+Variant: gui
+#if get(g:, '@optionprefix_transp_bg', 0) && !has('gui_running')
+Variant: 256 8
+#if get(g:, '@optionprefix_transp_bg', 0)
+Variant: gui 256 8
+    Normal           white             none
+    Terminal         white             none
+#else
+    Normal           base              bg1
+    Terminal         white             black
+#endif
+
+# Group              Foreground        Background        Attributes
+ColorColumn          none              bg2
+Conceal              none              none
+Cursor               cursor            bg1               reverse
+CursorColumn         fg                bg2
+CursorLine           none              bg2
+CursorLineNr         magenta           bg1
+DiffAdd              green             none              reverse
+DiffChange           yellow            none              reverse
+DiffDelete           red               none              reverse
+DiffText             blue              none              reverse
+Directory            blue              none
+EndOfBuffer          none              none 
+ErrorMsg             err               base              reverse
+FoldColumn           magenta           bg3
+Folded               head1             head1_bg          italic,bold
+IncSearch            cyan              none              standout
+LineNr               lnum              bg2
+MatchParen           mat               none
+ModeMsg              blue              none
+MoreMsg              blue              none
+NonText              red               none              bold
+Pmenu                ttip              ttip_bg
+PmenuSbar            none              ttip_bg
+PmenuSel             base              ttip_sl
+PmenuThumb           none              ttip_sl 
+Question             cyan              none              bold
+Search               brightgreen       none              reverse
+SignColumn           base              none
+SpecialKey           base_dim          none
+SpellBad             none              none              s=red g=undercurl
+SpellCap             none              none              s=blue g=undercurl
+SpellLocal           none              none              s=magenta g=undercurl
+SpellRare            none              none              s=cyan reverse g=undercurl
+StatusLine           base              act1
+StatusLineNC         base_dim          act1
+TabLine              base              act1
+TabLineFill          none              bg4
+TabLineSel           base              act2
+Title                yellow            none              bold
+VertSplit            border            none
+Visual               none              highlight
+VisualNOS            none              highlight
+WarningMsg           war               base              reverse
+WildMenu             brightmagenta     highlight_dim
+# Other conventional group names (see `:help group-name`)
+Comment              comment           comment_bg        italic
+Constant             const             none
+String               str               none
+Error                err               black             reverse
+Function             func              none
+Identifier           var               none
+Ignore               none              none
+Keyword              keyword           none              bold
+PreProc              meta              none
+Special              keyword           none              bold
+Todo                 comment           comment_bg        bold
+Type                 type              none
+Underlined           none              none              underline
+# See `:help CursorIM`
+CursorIM             cursor            bg1               reverse 
+# See `:help window-toolbar`
+ToolbarLine          none              bg2
+ToolbarButton        base              bg2               bold
+# }}}
+
+# Additional highlight groups {{{
+# Add additional highlight groups here if you want
+# }}}
+
+Background: light
+
+# Color palette for light variant {{{
+# Color name                GUI                  Base256    Base16 (optional)
+# You may use hexadecimal values, too, and you may provide an explicit base-256 color:
+# Color: brightwhite          #ffffff                231      White
+Color: act1                 #e7e5eb                  ~        black
+Color: act2                 #d3d3e7                  ~        gray
+Color: base                 #655370                  ~        white
+Color: base_dim             #a094a2                  ~        gray
+Color: bg1                  #fbf8ef                  ~        black
+Color: bg2                  #efeae9                  ~        black
+Color: bg3                  #e3dedd                  ~        black
+Color: bg4                  #d2ceda                  ~        black
+Color: border               #b3b9be                  ~        magenta
+Color: cblk                 #655370                  ~
+Color: cblk_bg              #e8e3f0                  ~
+Color: cblk_ln              #9380b2                  ~
+Color: cblk_ln_bg           #ddd8eb                  ~
+Color: cursor               #eead0e                  ~        yellow
+Color: const                #4e3163                  ~        magenta
+Color: comment              #2aa1ae                  ~        cyan
+Color: comment_light        #a49da5                  ~        cyan
+Color: comment_bg           #ecf3ec                  ~        black
+Color: comp                 #6c4173                  ~
+Color: err                  #e0211d                  ~        red
+Color: func                 #6c3163                  ~        magenta
+Color: head1                #3a81c3                  ~        blue
+Color: head1_bg             #edf1ed                  ~        black
+Color: head2                #2d9574                  ~
+Color: head2_bg             #edf2e9                  ~
+Color: head3                #67b11d                  ~
+Color: head3_bg             #edf2e9                  ~
+Color: head4                #b1951d                  ~
+Color: head4_bg             #f6f1e1                  ~
+Color: highlight            #d3d3e7                  ~         gray
+Color: highlight_dim        #e7e7fc                  ~         gray
+Color: keyword              #3a81c3                  ~         blue
+Color: lnum                 #a8a8bf                  ~         gray
+Color: mat                  #ba2f59                  ~         green
+Color: meta                 #da8b55                  ~         yellow
+Color: str                  #2d9574                  ~         green
+Color: suc                  #42ae2c                  ~
+Color: ttip                 #8c799f                  ~         magenta
+Color: ttip_sl              #c8c6dd                  ~         black
+Color: ttip_bg              #e2e0ea                  ~         magenta
+Color: type                 #ba2f59                  ~         magenta
+Color: var                  #715ab1                  ~         blue
+Color: war                  #dc752f                  ~         yellow
+                                                                       
+# colors                                             ~
+Color: black                #292b2e                  ~         black
+Color: red                  #d26487                  ~         red
+Color: green                #288668                  ~         green
+Color: yellow               #b89f33                  ~         yellow
+Color: blue                 #6981c5                  ~         blue
+Color: magenta              #a15ea7                  ~         magenta
+Color: cyan                 #35a8a5                  ~         cyan
+Color: white                #999999                  ~         white
+Color: brightblack          #34323e                  ~        
+Color: brightred            #f2241f                  ~         
+Color: brightgreen          #67b11d                  ~         green
+Color: brightyellow         #b1951d                  ~
+Color: brightblue           #4f97d7                  ~
+Color: brightmagenta        #bc6ec5                  ~         magenta
+Color: brightcyan           #2d9574                  ~
+Color: brightwhite          #b2b2b2                  ~
+# }}}                                                ~
+
+# Terminal colors for light variant {{{
+Term colors: black red green yellow blue magenta cyan white
+Term colors: brightblack brightred brightgreen brightyellow
+Term colors: brightblue brightmagenta brightcyan brightwhite
+# }}}
+
+# Definitions common to all variants {{{
+Variant: gui
+#if get(g:, '@optionprefix_transp_bg', 0) && !has('gui_running')
+Variant: 256 8
+#if get(g:, '@optionprefix_transp_bg', 0)
+Variant: gui 256 8
+    Normal           white             none
+    Terminal         white             none
+#else
+    Normal           base              bg1
+    Terminal         white             black
+#endif
+
+# Group              Foreground        Background        Attributes
+ColorColumn          none              bg2
+Conceal              none              none
+Cursor               cursor            bg1               reverse
+CursorColumn         fg                bg2
+CursorLine           none                bg2
+CursorLineNr         magenta           bg1
+DiffAdd              green             none              reverse
+DiffChange           yellow            none              reverse
+DiffDelete           red               none              reverse
+DiffText             blue              none              reverse
+Directory            blue              none
+EndOfBuffer          none              none 
+ErrorMsg             err               base              reverse
+FoldColumn           magenta           bg3
+Folded               head1             head1_bg          italic,bold
+IncSearch            cyan              none              standout
+LineNr               lnum              bg2
+MatchParen           mat               none
+ModeMsg              blue              none
+MoreMsg              blue              none
+NonText              red               none              bold
+Pmenu                ttip              ttip_bg
+PmenuSbar            none              ttip_bg
+PmenuSel             base              ttip_sl
+PmenuThumb           none              ttip_sl 
+Question             cyan              none              bold
+Search               brightgreen       none              reverse
+SignColumn           base              none
+SpecialKey           base_dim          none
+SpellBad             none              none              s=red g=undercurl
+SpellCap             none              none              s=blue g=undercurl
+SpellLocal           none              none              s=magenta g=undercurl
+SpellRare            none              none              s=cyan reverse g=undercurl
+StatusLine           base              act1
+StatusLineNC         base_dim          act1
+TabLine              base              act1
+TabLineFill          none              bg4
+TabLineSel           base              act2
+Title                yellow            none              bold
+VertSplit            border            none
+Visual               none              highlight
+VisualNOS            none              highlight
+WarningMsg           war               base              reverse
+WildMenu             brightmagenta     highlight_dim
+# Other conventional group names (see `:help group-name`)
+Comment              comment           comment_bg        italic
+Constant             const             none
+String               str               none
+Error                err               black             reverse
+Function             func              none
+Identifier           var               none
+Ignore               none              none
+Keyword              keyword           none              bold
+PreProc              meta              none
+Special              keyword           none              bold
+Todo                 comment           comment_bg        bold
+Type                 type              none
+Underlined           none              none              underline
+# See `:help CursorIM`
+CursorIM             cursor            bg1               reverse 
+# See `:help window-toolbar`
+ToolbarLine          none              bg2
+ToolbarButton        base              bg2               bold
+# }}}
+
+# Additional highlight groups {{{
+# Add additional highlight groups here if you want
+# }}}
+
+Background: any
+# Include: _bw.colortemplate
+
