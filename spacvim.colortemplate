@@ -300,7 +300,7 @@ ColorColumn          none              bg2
 Conceal              none              none
 Cursor               cursor            bg1               reverse
 CursorColumn         fg                bg2
-CursorLine           none                bg2
+CursorLine           none              bg2
 CursorLineNr         magenta           bg1
 DiffAdd              green             none              reverse
 DiffChange           yellow            none              reverse
@@ -308,7 +308,7 @@ DiffDelete           red               none              reverse
 DiffText             blue              none              reverse
 Directory            blue              none
 EndOfBuffer          none              none 
-ErrorMsg             err               base              reverse
+ErrorMsg             err               act1              reverse
 FoldColumn           magenta           bg3
 Folded               head1             head1_bg          italic,bold
 IncSearch            cyan              none              standout
@@ -338,7 +338,7 @@ Title                yellow            none              bold
 VertSplit            border            none
 Visual               none              highlight
 VisualNOS            none              highlight
-WarningMsg           war               base              reverse
+WarningMsg           war               act1              reverse
 WildMenu             brightmagenta     highlight_dim
 # Other conventional group names (see `:help group-name`)
 Comment              comment           comment_bg        italic
